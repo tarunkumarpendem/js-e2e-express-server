@@ -1,15 +1,20 @@
-node
+node('ubuntu') 
 {
-    agent
-    {
-        label 'ubuntu'
-    }
     stages
     {
         stage('clone')
         {
-            git url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.git',
-                branch: 'JS'
+            git branch: 'JS', 
+                credentialsId: 'UBUNTU', 
+                url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.git'
+        }
+        stage('build and install')
+        {
+            script 
+            {
+                 'npm install run build run test'
+            }
+            
         }
     }
-}
+}    
