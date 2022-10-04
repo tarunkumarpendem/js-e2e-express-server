@@ -1,6 +1,6 @@
 pipeline
 {
-    agent
+    agent 
     {
         label 'ubuntu'
     }
@@ -10,16 +10,20 @@ pipeline
         {
             steps
             {
-                git url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.git',
+                git url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.gitt',
                     branch: 'JS'
             }
         }
-        stage('install')
+        stage('install, build and test')
         {
             steps
             {
-                sh script """npm install,
-                             npm run build"""
+                script
+                {
+                    sh """npm install
+                          npm run build
+                          npm run test"""
+                }
             }
         }
     }
