@@ -10,7 +10,7 @@ pipeline
         {
             steps
             {
-                git url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.gitt',
+                git url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.git',
                     branch: 'JS'
             }
         }
