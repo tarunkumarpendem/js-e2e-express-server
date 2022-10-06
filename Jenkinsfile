@@ -4,6 +4,16 @@ pipeline
     {
         label 'ubuntu'
     }
+    parameters
+    {
+        choice(name: 'Branch_to_build', 
+               choices: ['main', 'JS'], 
+               description: 'Choose the branch to build')
+    }
+    triggers
+    {
+        pollSCM('* * * * *')
+    }
     stages
     {
         stage('clone')
@@ -11,7 +21,7 @@ pipeline
             steps
             {
                 git url: 'https://github.com/tarunkumarpendem/js-e2e-express-server.git',
-                    branch: 'JS'
+                    branch: "${params.Branch_to_build}"
             }
         }
         stage('install, build and test')
