@@ -2,7 +2,7 @@ pipeline
 {
     agent 
     {
-        label 'ubuntu'
+        label 'node-1'
     }
     parameters
     {
@@ -24,12 +24,9 @@ pipeline
         {
             steps
             {
-                script
-                {
-                    sh """npm install
-                          npm run build
-                          npm run test"""
-                }
+                sh """npm install
+                      npm run build
+                      npm run test"""
             }
         }
     }
