@@ -25,7 +25,6 @@ pipeline
             steps
             {
                 sh """npm install
-                      npm start
                       npm run build
                       npm run test
                       npm publish"""
