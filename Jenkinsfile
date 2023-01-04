@@ -10,10 +10,6 @@ pipeline
                choices: ['main', 'JS'], 
                description: 'Choose the branch to build')
     }
-    triggers
-    {
-        pollSCM('* * * * *')
-    }
     stages
     {
         stage('clone')
